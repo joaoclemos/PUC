@@ -1,0 +1,92 @@
+/* Estilos gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Filtros */
+.filters-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filters-container input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.filters-container input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Lista de posts */
+.posts-container {
+    display: grid;
+    gap: 20px;
+}
+
+.post-item {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.post-item h3 {
+    margin-top: 0;
+    color: #2980b9;
+}
+
+.post-item h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-item h3 a:hover {
+    text-decoration: underline;
+}
+
+.post-conteudo {
+    margin: 10px 0;
+}
+
+.post-image-thumb {
+    width: 100px;
+    height: auto;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+/* Mensagens de erro/empty */
+.posts-container p {
+    text-align: center;
+    color: #7f8c8d;
+    padding: 20px;
+}

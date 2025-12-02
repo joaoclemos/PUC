@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes Favoritos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Seus Favoritos ❤️</h1>
+    <div id="lista-favoritos" class="container row mt-5"></div>
+
+    <script src="dados.js"></script> <!-- ou onde está seu objeto `filmes` -->
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const favoritosIds = JSON.parse(localStorage.getItem("favoritos") || "[]");
+            const todosFilmes = [...filmes.maisAssistidos, ...filmes.classicos];
+            const favoritos = todosFilmes.filter(filme => favoritosIds.includes(filme.id));
+
+            montarFilmes(favoritos, "lista-favoritos");
+        });
+    </script>
+</body>
+</html>
