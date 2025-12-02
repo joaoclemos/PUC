@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1746285780 source:c:\users\joaoc\onedrive\documentos\programação\cálculo\projeto joao 890048\q1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
