@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avaliar Posts</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f4f7;
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1.5rem;
+      font-weight: bold;
+      color: #34495e;
+    }
+
+    select, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      background: #fefefe;
+      margin-top: 0.4rem;
+    }
+
+    .tooltip-container {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+      margin-left: 6px;
+    }
+
+    .tooltip-text {
+      visibility: hidden;
+      width: 250px;
+      background-color: #333;
+      color: #fff;
+      text-align: left;
+      border-radius: 6px;
+      padding: 8px 12px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -125px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .tooltip-container:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .info-tooltip {
+      font-size: 1.2rem;
+      color: #007bff;
+    }
+
+    .star-rating {
+      display: flex;
+      margin-top: 0.6rem;
+      gap: 0.6rem;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .star {
+      color: #ccc;
+      transition: color 0.2s;
+    }
+
+    .star.selecionada {
+      color: gold;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 1rem 1.8rem;
+      font-size: 1.1rem;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #218838;
+      transform: scale(1.02);
+    }
+
+    .avaliacoes {
+      margin-top: 2.5rem;
+    }
+
+    .avaliacao-card {
+      padding: 1.2rem;
+      margin-top: 1.2rem;
+      background: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .comentario-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .comentario-body {
+      margin-top: 0.5rem;
+    }
+
+    .acoes {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .acao-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #444;
+      position: relative;
+    }
+
+    .acao-btn:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .editado-info {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .textarea-edit {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      border-radius: 5px;
+    }
+
+    .salvar-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .back-btn:hover {
+      opacity: 1;
+    }
+  </style>
+<link rel="stylesheet" href="../../assets/css/home.css" />
+  <script src="../../assets/js/login.js"></script>
+  
+</head>
+<body>
+  <header>
+     <ul>
+            <li><a href="../post/post_index.html">seus posts</a></li>
+      </ul>
+      
+      <ul>
+            <li><a href="avaliar_post_e_comentar_novo.html">Criar comentario</a></li>
+      </ul>
+      
+    <h1>Bem-vindo</h1>
+    <ul>
+          <li><a href="chat_de_suporte_ao_usuario_novo.html">Suporte</a></li>
+    </ul>
+    <a href="../paginausuarios/perfil.html" id="user-name-link">Usuário</a>
+  </header>
+<body>
+  <button class="back-btn" onclick="window.location.href='forum.html';">Voltar para a Home</button>
+  <div class="container">
+    <h2>Avaliar Post</h2>
+
+    <form id="form-avaliacao">
+      <label for="post">
+        Selecione um Post
+        <span class="tooltip-container">
+          <span class="info-tooltip">ℹ️</span>
+          <span class="tooltip-text">Nesse caso, o post referido vai ser e vim do site pronto linkado ( irei editar e linkar/referenciar tudo ) os nomes da opção selecionar são somente exemplos.</span>
+        </span>
+      </label>
+      <select id="post" required>
+        <option value="">-- Selecione --</option>
+        <option value="post1">Post 1: Como usar HTML</option>
+        <option value="post2">Post 2: Dicas de CSS</option>
+        <option value="post3">Post 3: JavaScript básico</option>
+      </select>
+
+      <label for="comentario">Comentário</label>
+      <textarea id="comentario" rows="4" placeholder="Escreva seu comentário..." required></textarea>
+
+      <label>Nota (1 a 5 estrelas)</label>
+      <div class="star-rating" id="estrelas">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+
+      <button type="submit">Publicar Avaliação</button>
+    </form>
+
+    <div class="avaliacoes" id="avaliacoes"></div>
+  </div>
+
+  <script>
+    let notaSelecionada = 0;
+    const estrelas = document.querySelectorAll('.star');
+
+    estrelas.forEach(estrela => {
+      estrela.addEventListener('click', () => {
+        notaSelecionada = parseInt(estrela.getAttribute('data-value'));
+        atualizarEstrelas();
+      });
+    });
+
+    function atualizarEstrelas() {
+      estrelas.forEach(estrela => {
+        const valor = parseInt(estrela.getAttribute('data-value'));
+        estrela.classList.toggle('selecionada', valor <= notaSelecionada);
+      });
+    }
+
+    document.getElementById('form-avaliacao').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const post = document.getElementById('post').value;
+      const comentario = document.getElementById('comentario').value.trim();
+      if (!post || !comentario || notaSelecionada === 0) {
+        alert("Por favor, preencha todos os campos e selecione uma nota.");
+        return;
+      }
+
+      criarComentario(post, comentario, notaSelecionada);
+      this.reset();
+      notaSelecionada = 0;
+      atualizarEstrelas();
+    });
+
+    function criarComentario(post, texto, nota, editado = false) {
+      const container = document.getElementById('avaliacoes');
+      const card = document.createElement('div');
+      card.className = 'avaliacao-card';
+
+      const header = document.createElement('div');
+      header.className = 'comentario-header';
+      header.innerHTML = `<strong>${post}</strong> <span>${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>`;
+
+      const body = document.createElement('div');
+      body.className = 'comentario-body';
+      const textoSpan = document.createElement('span');
+      textoSpan.textContent = texto;
+      body.appendChild(document.createTextNode("Comentário: "));
+      body.appendChild(textoSpan);
+
+      const notaEl = document.createElement('div');
+      notaEl.textContent = `Nota: ${'★'.repeat(nota)}${'☆'.repeat(5 - nota)}`;
+      body.appendChild(document.createElement('br'));
+      body.appendChild(notaEl);
+
+      if (editado) {
+        const editadoInfo = document.createElement('div');
+        editadoInfo.className = 'editado-info';
+        editadoInfo.textContent = `Editado às ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+        body.appendChild(editadoInfo);
+      }
+
+      const acoes = document.createElement('div');
+      acoes.className = 'acoes';
+
+      const editarBtn = document.createElement('button');
+      editarBtn.innerHTML = '🖉';
+      editarBtn.className = 'acao-btn';
+      editarBtn.setAttribute('data-tooltip', 'Editar comentário');
+      editarBtn.onclick = () => {
+        const textarea = document.createElement('textarea');
+        textarea.className = 'textarea-edit';
+        textarea.value = textoSpan.textContent;
+
+        const salvarBtn = document.createElement('button');
+        salvarBtn.className = 'salvar-btn';
+        salvarBtn.textContent = 'Salvar';
+
+        salvarBtn.onclick = () => {
+          textoSpan.textContent = textarea.value;
+          card.remove();
+          criarComentario(post, textarea.value, nota, true);
+        };
+
+        body.innerHTML = '';
+        body.appendChild(textarea);
+        body.appendChild(salvarBtn);
+      };
+
+      const excluirBtn = document.createElement('button');
+      excluirBtn.innerHTML = '🗑️';
+      excluirBtn.className = 'acao-btn';
+      excluirBtn.setAttribute('data-tooltip', 'Excluir comentário?');
+      excluirBtn.onclick = () => {
+        card.remove();
+      };
+
+      acoes.appendChild(editarBtn);
+      acoes.appendChild(excluirBtn);
+
+      card.appendChild(header);
+      card.appendChild(body);
+      card.appendChild(acoes);
+
+      container.appendChild(card);
+    }
+  </script>
+</body>
+</html>

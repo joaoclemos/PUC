@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Perfil</title>
+    <link rel="stylesheet" href="../../assets/css/home.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/perfil.css">
+  <script src="../../assets/js/login.js"></script>
+  
+</head>
+<body>
+  <header>
+     <ul>
+            <li><a href="../post/post_index.html">seus posts</a></li>
+      </ul>
+      
+      <ul>
+            <li><a href="../home/avaliar_post_e_comentar_novo.html">Criar comentario</a></li>
+      </ul>
+      
+    <h1>Bem-vindo</h1>
+    <ul>
+          <li><a href="../home/chat_de_suporte_ao_usuario_novo.html">Suporte</a></li>
+    </ul>
+    <a href="../paginausuarios/perfil.html" id="user-name-link">Usuário</a>
+  </header>
+
+  <main class="container">
+    <section class="perfil-header">
+      <img src="" alt="Foto de perfil do usuário" id="fotoPerfil">
+      <h1 id="nomeUsuario"></h1>
+      <p id="bioUsuario"></p>
+      <button id="btnEditarPerfil">Editar Perfil</button>
+    </section>
+
+    <section class="abas">
+      <button class="aba ativa" data-aba="posts">Meus Posts</button>
+      <button class="aba" data-aba="comentarios">Comentários</button>
+      <button class="aba" data-aba="favoritos">Favoritos</button>
+    </section>
+
+    <section id="conteudoPosts" class="conteudo-aba ativa" aria-labelledby="posts">
+      <!-- Posts serão carregados aqui -->
+    </section>
+
+    <section id="conteudoComentarios" class="conteudo-aba" aria-labelledby="comentarios">
+      <!-- Comentários serão carregados aqui -->
+    </section>
+
+    <section id="conteudoFavoritos" class="conteudo-aba" aria-labelledby="favoritos">
+      <!-- Favoritos serão carregados aqui -->
+    </section>
+  </main>
+
+  <script src="./perfil.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "titulo": "Introdução ao JavaScript",
+        "conteudo": "JavaScript é uma linguagem de programação essencial para desenvolvimento web...",
+        "categoria": "Programação",
+        "tags": ["javascript", "web", "frontend"],
+        "imagens_url": []
+      },
+      {
+        "id": 2,
+        "titulo": "Como usar CSS Grid",
+        "conteudo": "CSS Grid Layout é um sistema de layout bidimensional para a web...",
+        "categoria": "CSS",
+        "tags": ["css", "layout", "webdesign"],
+        "imagens_url": []
+      },
+      {
+        "id": 3,
+        "titulo": "Dicas de React para iniciantes",
+        "conteudo": "React é uma biblioteca JavaScript popular para construir interfaces de usuário...",
+        "categoria": "Programação",
+        "tags": ["react", "javascript", "frontend"],
+        "imagens_url": []
+      }
+    ]
+  }

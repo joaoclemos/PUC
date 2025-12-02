@@ -1,0 +1,242 @@
+/* perfil.css */
+.perfil-header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#fotoPerfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #7a2000;
+}
+
+.perfil-header h1 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.perfil-header p {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+#btnEditarPerfil {
+    background-color: #7a2000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#btnEditarPerfil:hover {
+    background-color: #7a2000;
+}
+
+.abas {
+    display: flex;
+    margin: 20px 0;
+    border-bottom: 1px solid #ddd;
+    justify-content: center;
+}
+
+.aba {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #555;
+    position: relative;
+    margin: 0 5px;
+}
+
+.aba.ativa {
+    color: #7a2000;
+    font-weight: bold;
+}
+
+.aba.ativa::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #7a2000;
+}
+
+.conteudo-aba {
+    display: none;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.conteudo-aba.ativa {
+    display: block;
+}
+
+.post-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
+}
+
+.post-item:last-child {
+    border-bottom: none;
+}
+
+.post-item:hover {
+    background-color: #f8f9fa;
+}
+
+.post-item h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+}
+
+.post-item h3 a {
+    color: #7a2000;
+    text-decoration: none;
+}
+
+.post-item h3 a:hover {
+    text-decoration: underline;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.sem-conteudo {
+    text-align: center;
+    padding: 30px;
+    color: #6c757d;
+    font-style: italic;
+}
+/* Estilização da página de edição de perfil */
+.editar-perfil-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.editar-perfil-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+#formUsuario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Maintained reduced spacing between form elements */
+}
+
+#formUsuario label {
+    color: #555;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#formUsuario input,
+#formUsuario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background-color: white;
+    transition: border-color 0.3s;
+}
+
+#formUsuario input:focus,
+#formUsuario textarea:focus {
+    outline: none;
+    border-color: #902600;
+    box-shadow: 0 0 5px rgba(144, 38, 0, 0.3);
+}
+
+#formUsuario textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#formUsuario button {
+    background-color: #902600;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    align-self: center;
+}
+
+#formUsuario button:hover {
+    background-color: #7a2000;
+}
+
+#formUsuario .voltar-button {
+    background-color: #6c757d;
+}
+
+#formUsuario .voltar-button:hover {
+    background-color: #5a6268;
+}
+
+#formUsuario input::placeholder,
+#formUsuario textarea::placeholder {
+    color: #999;
+    font-style: italic;
+}
+/* Estilização do botão Voltar na página de perfil */
+.perfil-header .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.perfil-header .voltar-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.perfil-header .voltar-button:hover {
+    background-color: #5a6268;
+}

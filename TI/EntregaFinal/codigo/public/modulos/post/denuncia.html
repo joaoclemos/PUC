@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Denunciar Post</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+  <h2>Denunciar Post</h2>
+
+  <label for="postId">ID do Post:</label>
+  <input type="number" id="postId" required><br>
+
+  <label for="usuarioId">Seu ID de Usuário:</label>
+  <input type="number" id="usuarioId" required><br>
+
+  <label for="motivo">Motivo da Denúncia:</label>
+  <select id="motivo">
+    <option value="Conteúdo impróprio">Conteúdo impróprio</option>
+    <option value="Spam">Spam</option>
+    <option value="Discurso de ódio">Discurso de ódio</option>
+    <option value="Fake news">Fake news</option>
+    <option value="Outro">Outro</option>
+  </select><br>
+
+  <label for="comentario">Comentário adicional (opcional):</label><br>
+  <textarea id="comentario" rows="4" cols="50"></textarea><br><br>
+  <script src="../../assets/js/denuncia.js"></script>
+  <button onclick="enviarDenuncia()">Enviar Denúncia</button>
+  <p><a class="botao" href="/modulos/home/home.html">← Voltar para a home</a></p>
+
+  <p id="statusMsg"></p>
+
+</body>
+</html>

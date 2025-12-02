@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home do Usuário</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/home.css" />
+  <link rel="stylesheet" href="../../assets/css/filters.css" />
+  <script src="../../assets/js/login.js"></script>
+</head>
+<body>
+  <header>
+    <ul>
+      <li><a href="../post/post_index.html">seus posts</a></li>
+    </ul>
+    <ul>
+      <li><a href="../home/avaliar_post_e_comentar_novo.html">Criar comentario</a></li>
+    </ul>
+    <h1>Bem-vindo</h1>
+    <ul>
+      <li><a href="../home/chat_de_suporte_ao_usuario_novo.html">Suporte</a></li>
+    </ul>
+    <a href="../paginausuarios/perfil.html" id="user-name-link">Usuário</a>
+  </header>
+
+  <main>
+    <h2>Seus Posts</h2>
+    <div class="filters-container">
+      <input type="text" id="filter-categoria" placeholder="Filtrar por categoria...">
+      <input type="text" id="filter-tags" placeholder="Filtrar por tags...">
+      <input type="text" id="filter-titulo" placeholder="Filtrar por título...">
+    </div>
+    <ul class="post-list" id="user-posts-list"></ul>
+  </main>
+
+  <script src="../../assets/js/home.js"></script>
+  <script src="../../assets/js/filters.js"></script>
+</body>
+</html>

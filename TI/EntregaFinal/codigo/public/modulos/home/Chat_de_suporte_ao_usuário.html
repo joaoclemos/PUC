@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte Técnico - Organização de Dados</title>
+    <style>
+        /* Estilo do botão voltar */
+        .btn-voltar {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background: #2c3e50;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Arial', sans-serif;
+            cursor: pointer;
+            transition: background 0.3s;
+            z-index: 100;
+        }
+        
+        .btn-voltar:hover {
+            background: #1a252f;
+        }
+        
+        /* Estilos principais do chat */
+        .chat-wrapper {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            z-index: 99;
+        }
+        
+        .chat-container {
+            background: white;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-minimized {
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        /* Cabeçalho do chat */
+        .chat-header {
+            background: #2c3e50;
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .chat-title {
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        /* Área de mensagens */
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f5f7fa;
+        }
+        
+        .message {
+            margin-bottom: 12px;
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.4;
+            position: relative;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .user-message {
+            background: #e3f2fd;
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .support-message {
+            background: #edf2f7;
+            margin-right: auto;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .message-time {
+            font-size: 10px;
+            color: #666;
+            margin-top: 4px;
+            text-align: right;
+        }
+        
+        /* Área de entrada */
+        .chat-input-area {
+            padding: 10px;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+        }
+        
+        .chat-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            font-size: 13px;
+            box-sizing: border-box;
+        }
+        
+        .chat-input:focus {
+            border-color: #2c3e50;
+        }
+        
+        /* Botões rápidos */
+        .quick-actions {
+            padding: 8px 10px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .quick-btn {
+            background: #e2e8f0;
+            border: none;
+            border-radius: 12px;
+            padding: 5px 10px;
+            margin: 3px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .quick-btn:hover {
+            background: #cbd5e0;
+        }
+        
+        /* Efeitos de transição */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .typing-indicator {
+            display: inline-block;
+        }
+        
+        .typing-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #666;
+            margin-right: 3px;
+            animation: typingAnimation 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+            margin-right: 0;
+        }
+        
+        @keyframes typingAnimation {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+        
+        /* Ícone de chat minimizado */
+        .minimized-icon {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+        }
+        
+        .minimized-icon svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+        }
+        
+        .minimized-icon span {
+            font-size: 13px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão Voltar -->
+    <button class="btn-voltar" onclick="window.history.back()">← Voltar</button>
+    
+    <!-- Container do Chat - Já visível por padrão -->
+    <div class="chat-wrapper">
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header" id="chatHeader">
+                <div class="minimized-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    <span>Suporte de Dados</span>
+                </div>
+                <div class="chat-title">Suporte Técnico - Dados</div>
+                <button class="chat-close" id="chatClose">×</button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message support-message">
+                    Olá! Meu nome é Carlos, sou especialista em organização de dados. Estou aqui para te ajudar com qualquer dúvida sobre gestão, limpeza ou integração de dados. No que posso ajudar hoje?
+                    <div class="message-time">Agora</div>
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <button class="quick-btn" data-question="Como remover registros duplicados?">Duplicados</button>
+                <button class="quick-btn" data-question="Qual melhor formato para datas?">Formatação</button>
+                <button class="quick-btn" data-question="Como unir dados de diferentes fontes?">Integração</button>
+                <button class="quick-btn" data-question="Como validar dados de entrada?">Validação</button>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Digite sua mensagem..." autocomplete="off">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Elementos do DOM
+        const chatContainer = document.getElementById('chatContainer');
+        const chatHeader = document.getElementById('chatHeader');
+        const chatClose = document.getElementById('chatClose');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const quickBtns = document.querySelectorAll('.quick-btn');
+        
+        // Controladores de estado
+        let isChatMinimized = false;
+        
+        // Funções auxiliares
+        function getCurrentTime() {
+            const now = new Date();
+            return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+        
+        function createTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message support-message';
+            
+            const typingText = document.createElement('span');
+            typingText.textContent = 'Carlos está digitando';
+            
+            const typingDots = document.createElement('span');
+            typingDots.className = 'typing-indicator';
+            typingDots.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+            
+            typingDiv.appendChild(typingText);
+            typingDiv.appendChild(typingDots);
+            
+            return typingDiv;
+        }
+        
+        function createMessageElement(text, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'support-message'}`;
+            
+            const timeDiv = document.createElement('div');
+            timeDiv.className = 'message-time';
+            timeDiv.textContent = getCurrentTime();
+            
+            messageDiv.textContent = text;
+            messageDiv.appendChild(timeDiv);
+            
+            return messageDiv;
+        }
+        
+        function addMessage(text, isUser) {
+            const messageElement = createMessageElement(text, isUser);
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function generateResponse(userQuestion) {
+            // Respostas mais humanas e variadas
+            const question = userQuestion.toLowerCase();
+            
+            if (question.includes('duplicad') || question.includes('repeti')) {
+                const tips = [
+                    "Ah, dados duplicados são um problema comum! Normalmente uso uma combinação de ferramentas como Excel (remover duplicatas) ou scripts Python com pandas.drop_duplicates(). Você já tentou alguma dessas opções?",
+                    "Para duplicados, costumo criar uma chave composta com os campos que devem ser únicos. Por exemplo, nome + data de nascimento. Depois filtro os repetidos. Posso te mostrar um exemplo prático se quiser.",
+                    "Dados repetidos são chatos mesmo! Uma técnica que uso é marcar os duplicados em vez de apagar direto, assim consigo revisar antes. Quer que eu explique melhor como fazer isso?"
+                ];
+                return tips[Math.floor(Math.random() * tips.length)];
+            } 
+            else if (question.includes('format') || question.includes('data') || question.includes('hora')) {
+                return "Padronização de formatos depende muito do sistema que você usa. No geral, recomendo sempre usar ISO 8601 para datas (YYYY-MM-DD) e horas em 24h. Mas se precisar de algo específico para seu caso, posso ajudar a definir o melhor padrão.";
+            }
+            else if (question.includes('integr') || question.includes('unir') || question.includes('fontes')) {
+                return "Integração de dados é meu ponto forte! Já trabalhei com vários casos. Normalmente começo mapeando os campos equivalentes entre os sistemas. Você está trabalhando com quais tipos de dados? Bancos SQL, planilhas, APIs?";
+            }
+            else if (question.includes('valid') || question.includes('qualidad')) {
+                return "Validar dados é essencial! Costumo criar regras como: campos obrigatórios, faixas de valores aceitáveis, formatos específicos. Uma dica: sempre valide na entrada dos dados, não só depois. Posso te passar um checklist que uso se ajudar.";
+            }
+            else {
+                const genericResponses = [
+                    "Interessante sua pergunta! Vou precisar de mais alguns detalhes para te ajudar melhor. Você pode descrever qual é exatamente o problema que está enfrentando?",
+                    "Já trabalhei com casos parecidos. Deixa eu ver se entendi direito: você está com dificuldade com " + userQuestion + ", é isso?",
+                    "Ótima dúvida! Vou consultar meus materiais aqui para te dar a resposta mais precisa possível. Enquanto isso, você pode me contar mais sobre o contexto do seu problema?",
+                    "Acho que tenho uma solução para isso, mas antes de falar, deixa eu confirmar: você já tentou alguma abordagem para resolver isso? Assim posso sugerir algo que complemente o que já fez."
+                ];
+                return genericResponses[Math.floor(Math.random() * genericResponses.length)];
+            }
+        }
+        
+        function sendMessage() {
+            const messageText = chatInput.value.trim();
+            if (!messageText) return;
+            
+            addMessage(messageText, true);
+            chatInput.value = '';
+            
+            // Resposta simulada com atraso humano
+            setTimeout(() => {
+                const typingIndicator = createTypingIndicator();
+                chatMessages.appendChild(typingIndicator);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                setTimeout(() => {
+                    chatMessages.removeChild(typingIndicator);
+                    const response = generateResponse(messageText);
+                    addMessage(response, false);
+                }, 1500 + Math.random() * 2000); // Atraso variável
+            }, 500);
+        }
+        
+        function toggleChatMinimize() {
+            isChatMinimized = !isChatMinimized;
+            chatContainer.classList.toggle('chat-minimized', isChatMinimized);
+            
+            // Mostrar título apropriado
+            const minimizedIcon = chatHeader.querySelector('.minimized-icon');
+            const normalTitle = chatHeader.querySelector('.chat-title');
+            
+            if (isChatMinimized) {
+                minimizedIcon.style.display = 'flex';
+                normalTitle.style.display = 'none';
+            } else {
+                minimizedIcon.style.display = 'none';
+                normalTitle.style.display = 'block';
+                // Focar no input quando expandir
+                setTimeout(() => chatInput.focus(), 100);
+            }
+        }
+        
+        // Event Listeners
+        chatClose.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evitar que o clique propague para o header
+            toggleChatMinimize();
+        });
+        
+        chatHeader.addEventListener('click', () => {
+            if (isChatMinimized) {
+                toggleChatMinimize();
+            }
+        });
+        
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        quickBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const question = btn.getAttribute('data-question');
+                addMessage(question, true);
+                
+                setTimeout(() => {
+                    const typingIndicator = createTypingIndicator();
+                    chatMessages.appendChild(typingIndicator);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    setTimeout(() => {
+                        chatMessages.removeChild(typingIndicator);
+                        const response = generateResponse(question);
+                        addMessage(response, false);
+                    }, 1500 + Math.random() * 1000);
+                }, 300);
+            });
+        });
+        
+        // Focar no input quando o chat carrega
+        window.addEventListener('DOMContentLoaded', () => {
+            // Esconder o ícone minimizado inicialmente
+            chatHeader.querySelector('.minimized-icon').style.display = 'none';
+            
+            setTimeout(() => {
+                chatInput.focus();
+            }, 500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f7f8;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+a {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  background-color: #a72c00;
+  color: white; 
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+a:hover {
+  background-color: #631700;
+  transform: translateY(-2px);
+}
+
+a:active {
+  background-color: #6d1800;
+  transform: translateY(0);
+}
+
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 2rem;
+  font-size: 1.8rem;
+}
+
+.container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #444;
+}
+
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-top: 1.5rem;
+  background-color: #a72c00;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #902600;
+}
+
+#statusMsg {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #555;
+  font-weight: bold;
+}
+
+a.botao {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #a72c00;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+a.botao:hover {
+  background-color: #841f00;
+  transform: translateY(-2px);
+}
+
+a.botao:active {
+  background-color: #6d1800;
+  transform: translateY(0);
+}
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Perfil</title>
+      <link rel="stylesheet" href="../../assets/css/home.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/perfil.css">
+<script src="../../assets/js/login.js"></script>
+  
+</head>
+<body>
+  <header>
+     <ul>
+            <li><a href="../post/post_index.html">seus posts</a></li>
+      </ul>
+      
+      <ul>
+            <li><a href="../home/avaliar_post_e_comentar_novo.html">Criar comentario</a></li>
+      </ul>
+      
+    <h1>Bem-vindo</h1>
+    <ul>
+          <li><a href="../home/chat_de_suporte_ao_usuario_novo.html">Suporte</a></li>
+    </ul>
+    <a href="../paginausuarios/perfil.html" id="user-name-link">Usuário</a>
+  </header>
+  <main class="container">
+    <h1>Editar Perfil</h1>
+    <form id="formUsuario">
+      <label>Nome:</label><input type="text" id="nome"><br>
+      <label>Email:</label><input type="email" id="email"><br>
+      <label>Bio:</label><textarea id="bio"></textarea><br>
+      <label>Foto (URL):</label><input type="text" id="perfil"><br>
+      <label>Nível:</label><input type="text" id="nivel"><br>
+      <label>Interesses:</label><input type="text" id="interesses" placeholder="Separe por vírgulas"><br>
+      <div class="button-container">
+    <a href="perfil.html"><button type="button" class="voltar-button">Voltar</button></a>
+    <button type="button" onclick="salvarUsuario()">Salvar</button>
+</div>
+    </form>
+  </main>
+  <script src="editar_perfil.js"></script>
+</body>
+</html>

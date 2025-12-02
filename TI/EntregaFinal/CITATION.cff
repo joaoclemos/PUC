@@ -1,0 +1,24 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: DataHub
+authors:
+  - family-names: Carvalho Lemos
+    given-names: João
+  - family-names: Furst Faria
+    given-names: Gabriel
+  - family-names: Rocha Ferreira
+    given-names: Artur
+  - family-names: Dias Morais
+    given-names: Davi Lucas
+  - family-names: 
+    given-names: João Paulo
+  - name-suffix: Professor Ilo
+    affiliation: PUC Minas
+keywords:
+  - Posts
+  - Banco de dados
+  - Fórum
+repository-code: https://github.com/ICEI-PUC-Minas-PPLCC-TI/atividade-01-mal-organizacao-de-dados-nas-empresas
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2025-06-22

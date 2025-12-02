@@ -1,0 +1,21 @@
+{
+  "avaliacoes": [
+    {
+      "id": 1,
+      "post": "post1",
+      "comentario": "Gostei bastante do conteúdo!",
+      "nota": 4,
+      "horaCriacao": "14:15",
+      "editado": false
+    },
+    {
+      "id": 2,
+      "post": "post2",
+      "comentario": "Muito útil, mas poderia ter mais exemplos.",
+      "nota": 3,
+      "horaCriacao": "15:30",
+      "editado": true,
+      "horaEdicao": "15:45"
+    }
+  ]
+}

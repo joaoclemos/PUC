@@ -1,0 +1,85 @@
+/* login.css - Estilo suave e compatível com Bootstrap */
+
+body {
+  background-color: #f7f7f7;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo da área central de login */
+#login-row {
+  border-radius: 8px;
+}
+
+/* Caixa do formulário */
+#login-box {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Título central */
+#login-box h3 {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Rótulos dos campos */
+#login-box label {
+  font-weight: 500;
+  color: #444;
+}
+
+/* Campos de input */
+#login-box input.form-control {
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+#login-box input.form-control:focus {
+  border-color: #a72c00;
+  box-shadow: 0 0 0 0.2rem rgba(167, 44, 0, 0.25);
+}
+
+/* Botões principais */
+.btn-primary {
+  background-color: #a72c00 !important;
+  border-color: #a72c00 !important;
+}
+
+.btn-primary:hover {
+  background-color: #861d00 !important;
+  border-color: #861d00 !important;
+}
+
+/* Modal */
+.modal-header {
+  background-color: #a72c00;
+  color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.modal-title {
+  font-weight: 600;
+}
+
+.modal-content {
+  border-radius: 8px;
+}
+
+/* Botão "Salvar" no modal */
+.modal-footer .btn-info {
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  color: white;
+}
+
+.modal-footer .btn-info:hover {
+  background-color: #31d2f2;
+  border-color: #25cff2;
+}

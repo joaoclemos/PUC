@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRUD de Posts</title>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    
+  <link rel="stylesheet" href="../../assets/css/home.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/post_form.css" />
+
+  <script src="../../assets/js/login.js"></script>
+  
+</head>
+<body>
+  <header>
+     <ul>
+            <li><a href="../post/post_index.html">seus posts</a></li>
+      </ul>
+      
+      <ul>
+            <li><a href="../home/avaliar_post_e_comentar_novo.html">Criar comentario</a></li>
+      </ul>
+      
+    <h1>Bem-vindo</h1>
+    <ul>
+          <li><a href="../home/chat_de_suporte_ao_usuario_novo.html">Suporte</a></li>
+    </ul>
+    <a href="../paginausuarios/perfil.html" id="user-name-link">Usuário</a>
+  </header>
+
+<body>
+
+
+  <main class="container">
+    <h1>Escreva seu post</h1>
+
+    <form id="post-form">
+      <input type="hidden" id="post-id" />
+
+      <input type="text" id="titulo" placeholder="Título do post" required />
+
+      <div id="editor-container"></div>
+
+      <input type="text" id="categoria" placeholder="Categoria" required />
+      <input type="text" id="tags" placeholder="Tags (separadas por vírgula)" />
+
+      <label>Imagens (opcional):</label>
+      <input type="file" id="imagens" multiple accept="image/*" />
+
+      <div id="preview-imagens"></div>
+
+      <button type="submit">Salvar</button>
+    </form>
+
+
+    <h2>Outros de seus posts</h2>
+    <ul id="post-list"></ul>
+  </main>
+
+  <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+  <script src="../../assets/js/post.js"></script>
+</body>
+
+</html>
