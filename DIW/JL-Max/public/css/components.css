@@ -1,0 +1,181 @@
+/* BOTÃO DE FAVORITOS */
+.favorito {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.favorito:hover {
+    background: #ff6b6b;
+    transform: scale(1.1);
+}
+
+.favorito.ativo {
+    background: red;
+    color: white;
+    border-color: red;
+}
+
+/* CARDS DE FILMES */
+.filme-card {
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Largura dinâmica */
+}
+
+.filme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3);
+}
+
+.filme-image-container {
+    position: relative;
+    width: 100%; /* Largura dinâmica */
+    aspect-ratio: 2/3; /* Proporção 2:3 mantida */
+    overflow: hidden;
+    border-radius: 8px;
+    flex: 1; /* Ocupa todo o espaço disponível no card */
+}
+
+.filme-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço */
+    transition: transform 0.5s ease;
+}
+
+.filme-card:hover .filme-image-container img {
+    transform: scale(1.05);
+}
+
+/* LAYOUT DA LISTA DE FILMES */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Aumentado de 120px para 150px */
+    gap: 10px; /* Espaçamento reduzido */
+    padding: 0;
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Ajustado proporcionalmente */
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Ajustado proporcionalmente */
+        gap: 5px;
+    }
+}
+
+/* ESTILOS PARA PÁGINA DE DETALHES */
+.detalhes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.capa-container {
+    flex: 1;
+    min-width: 250px;
+}
+
+.capa-container img {
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.trailer-container {
+    flex: 2;
+    min-width: 300px;
+}
+
+.trailer-container iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    border: none;
+}
+
+.detalhes-info-container {
+    margin-top: 30px;
+    background: rgba(30, 30, 30, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #dc3545;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .detalhes-container {
+        flex-direction: column;
+    }
+    
+    .trailer-container iframe {
+        height: 300px;
+    }
+    
+    .capa-container img {
+        max-height: 400px;
+    }
+}
+
+/* ESTILOS PARA O BOTÃO DE ADMIN */
+.navbar-nav .nav-item#admin-cadastro-filme a {
+    color: white; /* Cor do texto em branco */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-item#admin-cadastro-filme a:hover {
+    color: #ff6b6b; /* Mantém o hover em vermelho claro */
+}
+
+/* ESTILOS PARA O BOTÃO DE LOGOUT PERSONALIZADO */
+.btn-logout-custom {
+    background-color: #dc3545;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-logout-custom:hover {
+    background-color: #ff6b6b;
+    transform: scale(1.05);
+}
+
+.btn-logout-custom i {
+    margin-right: 3px;
+}
