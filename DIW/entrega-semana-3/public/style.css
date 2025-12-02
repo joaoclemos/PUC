@@ -1,0 +1,215 @@
+*{
+    background-color: black;
+    color: white;
+}
+header 
+    {
+    position: relative;
+    position: fixed;            
+        top: 0;                     
+        left: 0;                    
+        width: 100%;                
+        z-index: 1000;
+    background-color: black;              
+    }
+    header{
+    h1{
+        text-align: center;
+        margin-top: 50px;
+    }
+    .logo {
+        width: 60px;
+        height: 50px;
+        margin: 0px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    nav ul {
+        display: flex;
+        justify-content: flex-end;
+        list-style: none;
+    }
+    nav ul li{
+        margin-right: 15px;
+    }
+    form{
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin: 20px;
+    }
+    form input[type="search"] {
+        padding: 10px 15px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        outline: none;
+        width: 250px;
+    }
+    form input[type="search"]:focus {
+        border-color: #007BFF;
+    }
+    form button[type="submit"] {
+        padding: 10px 20px;         
+        font-size: 16px;            
+        background-color: #ff0000; 
+        color: white;             
+        border: none;               
+        border-radius: 25px;        
+        cursor: pointer;            
+        margin-left: 10px;           
+    }
+    form button[type="submit"]:hover {
+        background-color: #6e5050;
+    }
+    form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    }
+    .login-container{
+        width: 60px;
+        height: 50px;
+        margin: 0;
+        position: absolute;
+        top: 130px;
+        left: 410px;
+    }
+    
+    
+    
+
+
+
+
+}
+header{
+    .favorite-btn {
+        background: none;       
+        border: none;           
+        font-size: 24px;        
+        cursor: pointer;        
+        color: rgb(255, 0, 0);           
+        position: absolute;     
+        top: 10px;              
+        right: 10px;            
+        transition: color 0.3s;
+    }
+    
+    .favorite-btn:hover {
+        color: red; 
+    }
+    
+        .image-list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        position: relative;
+    }
+    
+    .image-list li {
+        position: relative;
+        margin: 10px;
+    }
+    
+    .image-list img {
+        width: 200px;
+        height: 300px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+}
+
+
+
+
+
+
+
+
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body { 
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+.image-list {
+    display: flex;               
+    overflow-x: auto;            
+    list-style-type: none;       
+    padding: 20px 0;
+    gap: 10px;             
+}
+
+.image-list li {
+    margin-right: 10px;          
+}
+
+.image-list img {
+    width: 190px;                
+    height: 300px;                
+    border-radius: 10px;       
+    object-fit: cover;           
+}
+
+h2 {
+    text-align: left;
+    margin-bottom: 0px;
+    margin-left: 10px;
+}
+h3{
+    margin-left: 10px;
+}
+}
+main {
+    margin-top: 210px;           
+}
+footer {
+    background-color: black;
+    color: white; 
+    text-align: center; 
+    padding: 20px 0; 
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer .footer-links li {
+    margin: 0 15px;
+}
+
+footer .footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer .footer-links a:hover {
+    color: #e70f0f; 
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}

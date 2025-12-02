@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JL max</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Catálogo de filmes</h1>
+        <img src="../public/Fotos/logo.png" alt="Logo do site" class="logo">
+        <div class="login-container">
+            <form action="/login" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="login-button">Login</button>
+            </form>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="#">Categorias</a></li>
+                <li><a href="#">Gêneros</a></li>
+                <li><a href="#">Ano</a></li>
+                <li><a href="#">Favoritos</a></li>
+            </ul>
+        </nav>
+        <form action="pesquisar.php" method="GET">
+            <input type="search" name="q" placeholder="Digite sua busca..." >
+            <button type="submit">Buscar</button>
+        </form>
+    </header>
+
+    <main>
+        </form>
+        <h2>Mais assistidos</h2>
+        <ul class="image-list">
+            <li class="vingadores"><img src="../public/Fotos/vingadores.jpg" alt="Vingadores"><button class="favorite-btn">❤</button></li>
+            <li class="uncharted"><img src="../public/Fotos/Uncharted.jpg" alt="Uncharted"><button class="favorite-btn">❤</button></li>
+            <li class="homemaranha"><img src="../public/Fotos/homemaranha.jpg" alt="Homem Aranha de volta ao lar"><button class="favorite-btn">❤</button></li>
+            <li class="avatar"><img src="../public/Fotos/avatar.webp" alt="avatar"><button class="favorite-btn">❤</button></li>
+            <li class="harrypotter"><img src="../public/Fotos/harrypottereasreliquiasdamorte.webp" alt="Harry Potter e as relíquias da morte"><button class="favorite-btn">❤</button></li>
+            <li class="americanpie"><img src="../public/Fotos/americanpie.jpg" alt="Vingadores"><button class="favorite-btn">❤</button></li>
+            <li class="animais"><img src="../public/Fotos/animais.webp" alt="Animais Fantásticos e onde habitam"><button class="favorite-btn">❤</button></li>
+            <li class="meugaroto"><img src="../public/Fotos/esteemeugaroto.jpg" alt="Este é meu garoto"><button class="favorite-btn">❤</button></li>
+            <li class="karatekid"><img src="../public/Fotos/karatekidlegends.webp" alt="karate kid legends"><button class="favorite-btn">❤</button></li>
+        </ul>
+        <h3>Clássicos</h3>  
+        <ul class="image-list">
+            <li class="gntgrande"><img src="../public/Fotos/gntgrande.jpg" alt="Gente Grande 2"><button class="favorite-btn">❤</button></li>
+            <li class="projectx"><img src="../public/Fotos/projectx.jpg" alt="Projectx"><button class="favorite-btn">❤</button></li>
+            <li class="virgem"><img src="../public/Fotos/oultimovirgem.webp" alt="O último virgem"><button class="favorite-btn">❤</button></li>
+            <li class="interstellar"><img src="../public/Fotos/interstellar.jpg" alt="Interstellar"><button class="favorite-btn">❤</button></li>
+            <li class="elaedemais"><img src="../public/Fotos/Elaedemaispramim.jpg" alt="Ela é demais pra mim"><button class="favorite-btn">❤</button></li>
+            <li class="avidaebela"><img src="../public/Fotos/avidaebela.webp" alt="A vida é bela"><button class="favorite-btn">❤</button></li>
+            <li class="karatekidog"><img src="../public/Fotos/karatekidog.jpg" alt="Karate kid"><button class="favorite-btn">❤</button></li>
+            <li class="badboys"><img src="../public/Fotos/badboys.jpg" alt="Bad badboys"><button class="favorite-btn">❤</button></li>
+            <li class="birdbox"><img src="../public/Fotos/birdbox.jpg" alt="Bird box"><button class="favorite-btn">❤</button></li>
+        </ul>     
+    </main>
+    <footer>
+        <ul class="footer-links">
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+        <p>&copy; 2025 JL Max - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
