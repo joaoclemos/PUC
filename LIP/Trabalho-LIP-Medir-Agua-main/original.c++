@@ -26,7 +26,7 @@ pinMode(echo, INPUT);
 return pulseIn(echo, HIGH); 
 } 
 // Calcula a porcentagem de água no tanque (altura total 100cm menos a 
-distância medida) 
+(distância medida) 
 float calcularPorcentagem() { 
 distancia = 0.01723 * medirDistancia(6, 5); 
 float porcentagem = 100 - distancia; 
